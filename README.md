@@ -33,7 +33,33 @@ To develop a C program using the static storage class in a function with a param
 ### Step 8:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void display(int n)
+{
+    static float a = 101.25;
+
+    for(int i = 1; i <= 5; i++)
+    {
+        printf("%.2f ", a);
+        a += 100.25;
+    }
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+
+    display(n);
+
+    return 0;
+}
+```
 # Output:
+<img width="342" height="33" alt="image" src="https://github.com/user-attachments/assets/e0cd2408-5831-4b1a-bb1e-ab5a0e5abd25" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -79,9 +105,45 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int add(int a,int b){ return a+b; }
+int sub(int a,int b){ return a-b; }
+int mul(int a,int b){ return a*b; }
+int divi(int a,int b){ return a/b; }
+
+int main()
+{
+    int a,b,ch;
+    int (*fp)(int,int);
+
+    scanf("%d%d",&a,&b);
+    scanf("%d",&ch);
+
+    switch(ch)
+    {
+        case 1: fp=add; break;
+        case 2: fp=sub; break;
+        case 3: fp=mul; break;
+        case 4: fp=divi; break;
+        default: printf("Invalid Choice"); return 0;
+    }
+
+    printf("Result = %d", fp(a,b));
+    return 0;
+}
+```
 # Output:
+
+Multiply option
+<img width="167" height="45" alt="image" src="https://github.com/user-attachments/assets/0202a0f4-4761-4d58-a474-dc697ef22849" />
 # Result: 
+
 Thus, the program was implemented and executed successfully, and the required output was obtained.
+
+
+
 
 # 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
 # IAPR-6- Module 6 - FoC
@@ -123,7 +185,45 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+struct Employee
+{
+    int no;
+    char name[30];
+    float salary;
+};
+
+int main()
+{
+    int n, i;
+    float max;
+    struct Employee e[100];
+
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+        scanf("%d %s %f", &e[i].no, e[i].name, &e[i].salary);
+
+    max = e[0].salary;
+
+    for(i = 1; i < n; i++)
+        if(e[i].salary > max)
+            max = e[i].salary;
+
+    printf("Employee(s) with Highest Salary:\n");
+
+    for(i = 0; i < n; i++)
+        if(e[i].salary == max)
+            printf("%d %s %.2f\n", e[i].no, e[i].name, e[i].salary);
+
+    return 0;
+}
+```
 # Output:
+<img width="342" height="108" alt="image" src="https://github.com/user-attachments/assets/49f876af-6c3a-4d86-ade4-a2a6513f49ff" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -166,7 +266,38 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 9:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+struct Date
+{
+    int day, month, year;
+};
+
+void findAge(struct Date *dob, int cyear)
+{
+    printf("Present Age = %d years", cyear - dob->year);
+}
+
+int main()
+{
+    struct Date d;
+    int currentYear;
+
+    printf("Enter Date of Birth (dd mm yyyy): ");
+    scanf("%d%d%d", &d.day, &d.month, &d.year);
+
+    printf("Enter Current Year: ");
+    scanf("%d", &currentYear);
+
+    findAge(&d, currentYear);
+
+    return 0;
+}
+```
 # Output:
+<img width="477" height="292" alt="image" src="https://github.com/user-attachments/assets/c45128f3-c95d-45d2-a2a6-f2b26734515b" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -202,7 +333,31 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+union Data
+{
+    int i;
+    char c;
+};
+
+int main()
+{
+    union Data d;
+    union Data *ptr = &d;
+
+    ptr->i = 65;
+
+    printf("Integer = %d\n", ptr->i);
+    printf("Character = %c\n", ptr->i);
+
+    return 0;
+}
+```
 # Output:
+<img width="152" height="81" alt="image" src="https://github.com/user-attachments/assets/474b5c99-36eb-49fe-bb7f-aff1487abc5d" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
