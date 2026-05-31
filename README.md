@@ -137,6 +137,8 @@ int main()
 # Output:
 
 Multiply option
+
+
 <img width="167" height="45" alt="image" src="https://github.com/user-attachments/assets/0202a0f4-4761-4d58-a474-dc697ef22849" />
 # Result: 
 
